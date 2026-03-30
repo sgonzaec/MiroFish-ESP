@@ -87,6 +87,14 @@ Prueba la demo en línea del proyecto original para ver MiroFish en acción:
 <td><img src="./static/image/screenshots/05_informe.png" alt="Generación de Informe" width="100%"/></td>
 <td><img src="./static/image/screenshots/06_encuesta.png" alt="Encuesta a Agentes" width="100%"/></td>
 </tr>
+<tr>
+<td><img src="./static/image/screenshots/07_reporte.png" alt="Reporte Completo" width="100%"/></td>
+<td><img src="./static/image/screenshots/08_chat_agente.png" alt="Chat con Agente" width="100%"/></td>
+</tr>
+<tr>
+<td><img src="./static/image/screenshots/09_report_agent.png" alt="Report Agent" width="100%"/></td>
+<td><img src="./static/image/screenshots/10_encuesta_resultados.png" alt="Resultados Encuesta" width="100%"/></td>
+</tr>
 </table>
 </div>
 ---
