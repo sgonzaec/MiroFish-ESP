@@ -1,35 +1,67 @@
 <template>
   <div class="home-container">
-    <!-- 顶部导航栏 -->
+    <!-- Announcement bar: Spanish adaptation by Manuel Peña - EnPixeles Lab -->
+    <div class="announcement-bar">
+      <span class="announcement-text">Adaptado al español para el mercado hispano por <strong>Manuel Peña</strong> — EnPíxeles Lab</span>
+      <div class="announcement-links">
+        <a href="https://www.instagram.com/enpixelesmedia/" target="_blank" rel="noopener" class="announcement-link" title="Instagram">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"></circle>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@enpixelamedia" target="_blank" rel="noopener" class="announcement-link" title="YouTube">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"></polygon>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/expixeles/" target="_blank" rel="noopener" class="announcement-link" title="LinkedIn">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="https://x.com/Enpixelesmedia" target="_blank" rel="noopener" class="announcement-link" title="X / Twitter">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Barra de navegación superior -->
     <nav class="navbar">
       <div class="nav-brand">MIROFISH</div>
       <div class="nav-links">
         <a href="https://github.com/666ghj/MiroFish" target="_blank" class="github-link">
-          访问我们的Github主页 <span class="arrow">↗</span>
+          Visitar nuestra página de Github <span class="arrow">↗</span>
         </a>
       </div>
     </nav>
 
     <div class="main-content">
-      <!-- 上半部分：Hero 区域 -->
+      <!-- Parte superior: Área Hero -->
       <section class="hero-section">
         <div class="hero-left">
           <div class="tag-row">
-            <span class="orange-tag">简洁通用的群体智能引擎</span>
-            <span class="version-text">/ v0.1-预览版</span>
+            <span class="orange-tag">Motor de inteligencia colectiva simple y universal</span>
+            <span class="version-text">/ v0.1-Vista previa</span>
           </div>
           
           <h1 class="main-title">
-            上传任意报告<br>
-            <span class="gradient-text">即刻推演未来</span>
+            Sube cualquier informe<br>
+            <span class="gradient-text">Predice el futuro al instante</span>
           </h1>
           
           <div class="hero-desc">
             <p>
-              即使只有一段文字，<span class="highlight-bold">MiroFish</span> 也能基于其中的现实种子，全自动生成与之对应的至多<span class="highlight-orange">百万级Agent</span>构成的平行世界。通过上帝视角注入变量，在复杂的群体交互中寻找动态环境下的<span class="highlight-code">“局部最优解”</span>
+              Incluso con solo un párrafo de texto, <span class="highlight-bold">MiroFish</span> puede generar automáticamente un mundo paralelo compuesto por hasta <span class="highlight-orange">millones de Agentes</span>. Inyecta variables desde una perspectiva global y busca la <span class="highlight-code">"solución local óptima"</span>
             </p>
             <p class="slogan-text">
-              让未来在 Agent 群中预演，让决策在百战后胜出<span class="blinking-cursor">_</span>
+              Que el futuro se ensaye entre Agentes, que las decisiones triunfen tras mil batallas<span class="blinking-cursor">_</span>
             </p>
           </div>
            
@@ -37,7 +69,7 @@
         </div>
         
         <div class="hero-right">
-          <!-- Logo 区域 -->
+          <!-- Área del Logo -->
           <div class="logo-container">
             <img src="../assets/logo/MiroFish_logo_left.jpeg" alt="MiroFish Logo" class="hero-logo" />
           </div>
@@ -48,84 +80,84 @@
         </div>
       </section>
 
-      <!-- 下半部分：双栏布局 -->
+      <!-- Parte inferior: Diseño de dos columnas -->
       <section class="dashboard-section">
-        <!-- 左栏：状态与步骤 -->
+        <!-- Columna izquierda: Estado y pasos -->
         <div class="left-panel">
           <div class="panel-header">
-            <span class="status-dot">■</span> 系统状态
+            <span class="status-dot">■</span> Estado del sistema
           </div>
           
-          <h2 class="section-title">准备就绪</h2>
+          <h2 class="section-title">Listo</h2>
           <p class="section-desc">
-            预测引擎待命中，可上传多份非结构化数据以初始化模拟序列
+            Motor de predicción en espera. Sube múltiples archivos no estructurados para inicializar la secuencia de simulación
           </p>
           
-          <!-- 数据指标卡片 -->
+          <!-- Tarjetas de métricas -->
           <div class="metrics-row">
             <div class="metric-card">
-              <div class="metric-value">低成本</div>
-              <div class="metric-label">常规模拟平均5$/次</div>
+              <div class="metric-value">Bajo costo</div>
+              <div class="metric-label">Simulación estándar: promedio $5/vez</div>
             </div>
             <div class="metric-card">
-              <div class="metric-value">高可用</div>
-              <div class="metric-label">最多百万级Agent模拟</div>
+              <div class="metric-value">Alta disponibilidad</div>
+              <div class="metric-label">Hasta millones de Agentes en simulación</div>
             </div>
           </div>
 
-          <!-- 项目模拟步骤介绍 (新增区域) -->
+          <!-- Descripción de pasos de simulación (nueva sección) -->
           <div class="steps-container">
             <div class="steps-header">
-               <span class="diamond-icon">◇</span> 工作流序列
+               <span class="diamond-icon">◇</span> Secuencia de flujo de trabajo
             </div>
             <div class="workflow-list">
               <div class="workflow-item">
                 <span class="step-num">01</span>
                 <div class="step-info">
-                  <div class="step-title">图谱构建</div>
-                  <div class="step-desc">现实种子提取 & 个体与群体记忆注入 & GraphRAG构建</div>
+                  <div class="step-title">Construcción del grafo</div>
+                  <div class="step-desc">Extracción de semillas reales & inyección de memoria individual y grupal & construcción GraphRAG</div>
                 </div>
               </div>
               <div class="workflow-item">
                 <span class="step-num">02</span>
                 <div class="step-info">
-                  <div class="step-title">环境搭建</div>
-                  <div class="step-desc">实体关系抽取 & 人设生成 & 环境配置Agent注入仿真参数</div>
+                  <div class="step-title">Configuración del entorno</div>
+                  <div class="step-desc">Extracción de relaciones de entidades & generación de perfiles & inyección de parámetros de simulación en Agent</div>
                 </div>
               </div>
               <div class="workflow-item">
                 <span class="step-num">03</span>
                 <div class="step-info">
-                  <div class="step-title">开始模拟</div>
-                  <div class="step-desc">双平台并行模拟 & 自动解析预测需求 & 动态更新时序记忆</div>
+                  <div class="step-title">Iniciar simulación</div>
+                  <div class="step-desc">Simulación paralela en dos plataformas & análisis automático de requisitos de predicción & actualización dinámica de memoria temporal</div>
                 </div>
               </div>
               <div class="workflow-item">
                 <span class="step-num">04</span>
                 <div class="step-info">
-                  <div class="step-title">报告生成</div>
-                  <div class="step-desc">ReportAgent拥有丰富的工具集与模拟后环境进行深度交互</div>
+                  <div class="step-title">Generación de informe</div>
+                  <div class="step-desc">ReportAgent tiene un rico conjunto de herramientas para interactuar profundamente con el entorno post-simulación</div>
                 </div>
               </div>
               <div class="workflow-item">
                 <span class="step-num">05</span>
                 <div class="step-info">
-                  <div class="step-title">深度互动</div>
-                  <div class="step-desc">与模拟世界中的任意一位进行对话 & 与ReportAgent进行对话</div>
+                  <div class="step-title">Interacción profunda</div>
+                  <div class="step-desc">Conversa con cualquier participante del mundo simulado & con ReportAgent</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 右栏：交互控制台 -->
+        <!-- Columna derecha: Consola de interacción -->
         <div class="right-panel">
           <div class="console-box">
-            <!-- 上传区域 -->
+            <!-- Área de carga -->
             <div class="console-section">
               <div class="console-header">
-                <span class="console-label">01 / 现实种子</span>
-                <span class="console-meta">支持格式: PDF, MD, TXT</span>
+                <span class="console-label">01 / Semilla real</span>
+                <span class="console-meta">Formatos soportados: PDF, MD, TXT</span>
               </div>
               
               <div 
@@ -148,8 +180,8 @@
                 
                 <div v-if="files.length === 0" class="upload-placeholder">
                   <div class="upload-icon">↑</div>
-                  <div class="upload-title">拖拽文件上传</div>
-                  <div class="upload-hint">或点击浏览文件系统</div>
+                  <div class="upload-title">Arrastra archivos para subir</div>
+                  <div class="upload-hint">O haz clic para explorar el sistema de archivos</div>
                 </div>
                 
                 <div v-else class="file-list">
@@ -162,37 +194,37 @@
               </div>
             </div>
 
-            <!-- 分割线 -->
+            <!-- Separador -->
             <div class="console-divider">
-              <span>输入参数</span>
+              <span>Ingresar parámetros</span>
             </div>
 
-            <!-- 输入区域 -->
+            <!-- Área de entrada -->
             <div class="console-section">
               <div class="console-header">
-                <span class="console-label">>_ 02 / 模拟提示词</span>
+                <span class="console-label">>_ 02 / Prompt de simulación</span>
               </div>
               <div class="input-wrapper">
                 <textarea
                   v-model="formData.simulationRequirement"
                   class="code-input"
-                  placeholder="// 用自然语言输入模拟或预测需求（例.武大若发布撤销肖某处分的公告，会引发什么舆情走向）"
+                  placeholder="// Ingresa en lenguaje natural el requisito de simulación (ej. ¿Qué opinión pública generaría si la universidad revocara la sanción de cierto estudiante?)"
                   rows="6"
                   :disabled="loading"
                 ></textarea>
-                <div class="model-badge">引擎: MiroFish-V1.0</div>
+                <div class="model-badge">Motor: MiroFish-V1.0</div>
               </div>
             </div>
 
-            <!-- 启动按钮 -->
+            <!-- Botón de inicio -->
             <div class="console-section btn-section">
               <button 
                 class="start-engine-btn"
                 @click="startSimulation"
                 :disabled="!canSubmit || loading"
               >
-                <span v-if="!loading">启动引擎</span>
-                <span v-else>初始化中...</span>
+                <span v-if="!loading">Iniciar motor</span>
+                <span v-else>Inicializando...</span>
                 <span class="btn-arrow">→</span>
               </button>
             </div>
@@ -200,8 +232,44 @@
         </div>
       </section>
 
-      <!-- 历史项目数据库 -->
+      <!-- Base de datos de proyectos históricos -->
       <HistoryDatabase />
+
+      <!-- Spanish adaptation by Manuel Peña - EnPixeles Lab - Based on MiroFish by 666ghj AGPL-3.0 -->
+      <footer class="credits-footer">
+        <span class="credits-text">Adaptado al español para el mercado hispano por <strong>Manuel Peña</strong> — EnPíxeles Lab</span>
+        <div class="credits-links">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/enpixelesmedia/" target="_blank" rel="noopener" class="credits-link" title="Instagram">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@enpixelamedia" target="_blank" rel="noopener" class="credits-link" title="YouTube">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"></polygon>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/expixeles/" target="_blank" rel="noopener" class="credits-link" title="LinkedIn">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <!-- X/Twitter -->
+          <a href="https://x.com/Enpixelesmedia" target="_blank" rel="noopener" class="credits-link" title="X / Twitter">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        </div>
+      </footer>
     </div>
   </div>
 </template>
@@ -213,41 +281,41 @@ import HistoryDatabase from '../components/HistoryDatabase.vue'
 
 const router = useRouter()
 
-// 表单数据
+// Datos del formulario
 const formData = ref({
   simulationRequirement: ''
 })
 
-// 文件列表
+// Lista de archivos
 const files = ref([])
 
-// 状态
+// Estado
 const loading = ref(false)
 const error = ref('')
 const isDragOver = ref(false)
 
-// 文件输入引用
+// Referencia al input de archivos
 const fileInput = ref(null)
 
-// 计算属性:是否可以提交
+// Propiedad computada: si se puede enviar
 const canSubmit = computed(() => {
   return formData.value.simulationRequirement.trim() !== '' && files.value.length > 0
 })
 
-// 触发文件选择
+// Activar selección de archivos
 const triggerFileInput = () => {
   if (!loading.value) {
     fileInput.value?.click()
   }
 }
 
-// 处理文件选择
+// Manejar selección de archivos
 const handleFileSelect = (event) => {
   const selectedFiles = Array.from(event.target.files)
   addFiles(selectedFiles)
 }
 
-// 处理拖拽相关
+// Manejar eventos de arrastrar y soltar
 const handleDragOver = (e) => {
   if (!loading.value) {
     isDragOver.value = true
@@ -266,7 +334,7 @@ const handleDrop = (e) => {
   addFiles(droppedFiles)
 }
 
-// 添加文件
+// Agregar archivos
 const addFiles = (newFiles) => {
   const validFiles = newFiles.filter(file => {
     const ext = file.name.split('.').pop().toLowerCase()
@@ -275,12 +343,12 @@ const addFiles = (newFiles) => {
   files.value.push(...validFiles)
 }
 
-// 移除文件
+// Eliminar archivos
 const removeFile = (index) => {
   files.value.splice(index, 1)
 }
 
-// 滚动到底部
+// Desplazarse hacia abajo
 const scrollToBottom = () => {
   window.scrollTo({
     top: document.body.scrollHeight,
@@ -288,15 +356,15 @@ const scrollToBottom = () => {
   })
 }
 
-// 开始模拟 - 立即跳转，API调用在Process页面进行
+// Iniciar simulación - redirigir inmediatamente, llamada API en la página Process
 const startSimulation = () => {
   if (!canSubmit.value || loading.value) return
   
-  // 存储待上传的数据
+  // Almacenar los datos pendientes de subida
   import('../store/pendingUpload.js').then(({ setPendingUpload }) => {
     setPendingUpload(files.value, formData.value.simulationRequirement)
     
-    // 立即跳转到Process页面（使用特殊标识表示新建项目）
+    // Redirigir a la página Process (identificador especial para proyecto nuevo)
     router.push({
       name: 'Process',
       params: { projectId: 'new' }
@@ -306,7 +374,7 @@ const startSimulation = () => {
 </script>
 
 <style scoped>
-/* 全局变量与重置 */
+/* Variables globales y reset */
 :root {
   --black: #000000;
   --white: #FFFFFF;
@@ -315,8 +383,8 @@ const startSimulation = () => {
   --gray-text: #666666;
   --border: #E5E5E5;
   /* 
-    使用 Space Grotesk 作为主要标题字体，JetBrains Mono 作为代码/标签字体
-    确保已在 index.html 引入这些 Google Fonts 
+    Usar Space Grotesk como fuente de títulos, JetBrains Mono como fuente de código/etiquetas
+    Asegurarse de importar estas Google Fonts en index.html 
   */
   --font-mono: 'JetBrains Mono', monospace;
   --font-sans: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif;
@@ -330,7 +398,50 @@ const startSimulation = () => {
   color: var(--black);
 }
 
-/* 顶部导航 */
+/* Announcement bar */
+.announcement-bar {
+  background: #0A0A0A;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 9px 40px;
+  position: relative;
+}
+
+.announcement-text {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  color: #C8C8C8;
+}
+
+.announcement-text strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.announcement-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.announcement-link {
+  color: #666;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.announcement-link:hover {
+  color: #FFFFFF;
+}
+
+/* Navegación superior */
 .navbar {
   height: 60px;
   background: var(--black);
@@ -373,14 +484,14 @@ const startSimulation = () => {
   font-family: sans-serif;
 }
 
-/* 主要内容区 */
+/* Área de contenido principal */
 .main-content {
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 40px;
 }
 
-/* Hero 区域 */
+/* Área Hero */
 .hero-section {
   display: flex;
   justify-content: space-between;
@@ -511,7 +622,7 @@ const startSimulation = () => {
 }
 
 .hero-logo {
-  max-width: 500px; /* 调整logo大小 */
+  max-width: 500px; /* Ajustar tamaño del logo */
   width: 100%;
 }
 
@@ -533,7 +644,7 @@ const startSimulation = () => {
   border-color: var(--orange);
 }
 
-/* Dashboard 双栏布局 */
+/* Diseño de dos columnas del Dashboard */
 .dashboard-section {
   display: flex;
   gap: 60px;
@@ -548,7 +659,7 @@ const startSimulation = () => {
   flex-direction: column;
 }
 
-/* 左侧面板 */
+/* Panel izquierdo */
 .left-panel {
   flex: 0.8;
 }
@@ -604,7 +715,7 @@ const startSimulation = () => {
   color: #999;
 }
 
-/* 项目模拟步骤介绍 */
+/* Descripción de pasos de simulación */
 .steps-container {
   border: 1px solid var(--border);
   padding: 30px;
@@ -660,14 +771,14 @@ const startSimulation = () => {
   color: var(--gray-text);
 }
 
-/* 右侧交互控制台 */
+/* Consola de interacción derecha */
 .right-panel {
   flex: 1.2;
 }
 
 .console-box {
-  border: 1px solid #CCC; /* 外部实线 */
-  padding: 8px; /* 内边距形成双重边框感 */
+  border: 1px solid #CCC; /* Borde externo sólido */
+  padding: 8px; /* Relleno que crea sensación de doble borde */
 }
 
 .console-section {
@@ -835,7 +946,7 @@ const startSimulation = () => {
   overflow: hidden;
 }
 
-/* 可点击状态（非禁用） */
+/* Estado clickeable (no deshabilitado) */
 .start-engine-btn:not(:disabled) {
   background: var(--black);
   border: 1px solid var(--black);
@@ -860,14 +971,56 @@ const startSimulation = () => {
   border: 1px solid #E5E5E5;
 }
 
-/* 引导动画：微妙的边框脉冲 */
+/* Animación de guía: pulso sutil del borde */
 @keyframes pulse-border {
   0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); }
   70% { box-shadow: 0 0 0 6px rgba(0, 0, 0, 0); }
   100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
 }
 
-/* 响应式适配 */
+/* Créditos footer */
+.credits-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 28px 0 8px 0;
+  border-top: 1px solid #F0F0F0;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.credits-text {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #BBB;
+  letter-spacing: 0.3px;
+}
+
+.credits-text strong {
+  color: #999;
+  font-weight: 600;
+}
+
+.credits-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.credits-link {
+  color: #CCC;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.credits-link:hover {
+  color: #666;
+}
+
+/* Adaptación responsive */
 @media (max-width: 1024px) {
   .dashboard-section {
     flex-direction: column;

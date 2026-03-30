@@ -1,6 +1,6 @@
 """
-LLM客户端封装
-统一使用OpenAI格式调用
+Encapsulado del cliente LLM
+Llamadas unificadas en formato OpenAI
 """
 
 import json
@@ -9,11 +9,21 @@ from typing import Optional, Dict, Any, List
 from openai import OpenAI
 
 from ..config import Config
+from .logger import get_logger
+
+logger = get_logger('mirofish.llm_client')
 
 
 class LLMClient:
-    """LLM客户端"""
-    
+    """Cliente LLM"""
+
+    # Modelos/proveedores que NO soportan response_format={"type":"json_object"}
+    # Gemini via OpenAI-compatible API requiere omitir este parámetro
+    _JSON_FORMAT_UNSUPPORTED_PATTERNS = [
+        'generativelanguage.googleapis.com',
+        'gemini',
+    ]
+
     def __init__(
         self,
         api_key: Optional[str] = None,
@@ -23,15 +33,23 @@ class LLMClient:
         self.api_key = api_key or Config.LLM_API_KEY
         self.base_url = base_url or Config.LLM_BASE_URL
         self.model = model or Config.LLM_MODEL_NAME
-        
+
         if not self.api_key:
-            raise ValueError("LLM_API_KEY 未配置")
-        
+            raise ValueError("LLM_API_KEY no configurado")
+
         self.client = OpenAI(
             api_key=self.api_key,
             base_url=self.base_url
         )
-    
+
+    def _supports_json_format(self) -> bool:
+        """Determina si el modelo/proveedor soporta response_format json_object."""
+        check_str = f"{self.base_url or ''} {self.model or ''}".lower()
+        for pattern in self._JSON_FORMAT_UNSUPPORTED_PATTERNS:
+            if pattern in check_str:
+                return False
+        return True
+
     def chat(
         self,
         messages: List[Dict[str, str]],
@@ -40,16 +58,16 @@ class LLMClient:
         response_format: Optional[Dict] = None
     ) -> str:
         """
-        发送聊天请求
-        
+        Enviar solicitud de chat
+
         Args:
-            messages: 消息列表
-            temperature: 温度参数
-            max_tokens: 最大token数
-            response_format: 响应格式（如JSON模式）
-            
+            messages: lista de mensajes
+            temperature: parámetro de temperatura
+            max_tokens: número máximo de tokens
+            response_format: formato de respuesta (ej. modo JSON)
+
         Returns:
-            模型响应文本
+            texto de respuesta del modelo
         """
         kwargs = {
             "model": self.model,
@@ -57,16 +75,24 @@ class LLMClient:
             "temperature": temperature,
             "max_tokens": max_tokens,
         }
-        
+
         if response_format:
             kwargs["response_format"] = response_format
-        
-        response = self.client.chat.completions.create(**kwargs)
+
+        logger.debug(f"Llamando LLM: model={self.model}, base_url={self.base_url}, temperature={temperature}, max_tokens={max_tokens}, response_format={response_format}")
+
+        try:
+            response = self.client.chat.completions.create(**kwargs)
+        except Exception as e:
+            logger.error(f"Error en llamada LLM (model={self.model}, base_url={self.base_url}): {type(e).__name__}: {e}")
+            raise
+
         content = response.choices[0].message.content
-        # 部分模型（如MiniMax M2.5）会在content中包含<think>思考内容，需要移除
+        logger.debug(f"Respuesta LLM recibida ({len(content or '')} chars): {(content or '')[:300]}")
+        # Algunos modelos (ej. MiniMax M2.5) incluyen contenido <think> en el campo content, debe eliminarse
         content = re.sub(r'<think>[\s\S]*?</think>', '', content).strip()
         return content
-    
+
     def chat_json(
         self,
         messages: List[Dict[str, str]],
@@ -74,30 +100,40 @@ class LLMClient:
         max_tokens: int = 4096
     ) -> Dict[str, Any]:
         """
-        发送聊天请求并返回JSON
-        
+        Enviar solicitud de chat y retornar JSON
+
         Args:
-            messages: 消息列表
-            temperature: 温度参数
-            max_tokens: 最大token数
-            
+            messages: lista de mensajes
+            temperature: parámetro de temperatura
+            max_tokens: número máximo de tokens
+
         Returns:
-            解析后的JSON对象
+            objeto JSON analizado
         """
+        # Gemini y otros modelos de razonamiento no soportan response_format=json_object
+        # En esos casos se confía en las instrucciones del system prompt para obtener JSON
+        use_json_format = self._supports_json_format()
+        if not use_json_format:
+            logger.info(f"Modelo '{self.model}' no soporta response_format json_object — omitiendo parámetro, confiando en system prompt")
+
         response = self.chat(
             messages=messages,
             temperature=temperature,
             max_tokens=max_tokens,
-            response_format={"type": "json_object"}
+            response_format={"type": "json_object"} if use_json_format else None
         )
-        # 清理markdown代码块标记
+        # Limpiar marcadores de bloque de código markdown
         cleaned_response = response.strip()
         cleaned_response = re.sub(r'^```(?:json)?\s*\n?', '', cleaned_response, flags=re.IGNORECASE)
         cleaned_response = re.sub(r'\n?```\s*$', '', cleaned_response)
         cleaned_response = cleaned_response.strip()
 
+        logger.debug(f"JSON limpiado para parsear ({len(cleaned_response)} chars): {cleaned_response[:200]}")
+
         try:
             return json.loads(cleaned_response)
-        except json.JSONDecodeError:
-            raise ValueError(f"LLM返回的JSON格式无效: {cleaned_response}")
+        except json.JSONDecodeError as e:
+            logger.error(f"Error al parsear JSON del LLM: {e}")
+            logger.error(f"Respuesta completa del LLM: {cleaned_response[:2000]}")
+            raise ValueError(f"Formato JSON inválido retornado por LLM: {cleaned_response}")
 
