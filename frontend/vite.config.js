@@ -5,11 +5,13 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   server: {
+    host: true,
     port: 3000,
     open: true,
+    allowedHosts: true,
     proxy: {
       '/api': {
-        target: 'personal-mirofish-kjcpry-7a5a50-161-22-42-62.traefik.me',
+        target: 'http://localhost:5001',
         changeOrigin: true,
         secure: false
       }
