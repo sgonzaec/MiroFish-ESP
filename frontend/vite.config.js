@@ -9,7 +9,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:5001',
+        target: 'personal-mirofish-kjcpry-7a5a50-161-22-42-62.traefik.me',
         changeOrigin: true,
         secure: false
       }
